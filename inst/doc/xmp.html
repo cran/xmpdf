@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>XMP FAQ</title>
+
+<script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<link rel="stylesheet" href="data:text/css,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" type="text/css" />
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">XMP FAQ</h1>
+
+
+
+<div id="table-of-contents" class="section level3">
+<h3>Table of Contents</h3>
+<ul>
+<li><a href="#auto">How do I adjust the automatic guessing of missing XMP tags?</a></li>
+<li><a href="#active">Which XMP tags have an active binding?</a></li>
+<li><a href="#nonactive">How do I get or set XMP tags without an active binding?</a></li>
+<li><a href="#google">What XMP tags are used to display informaton on Google Images?</a></li>
+<li><a href="#cc">Which tags should I use for Creative Commons license information?</a></li>
+<li><a href="#language">How do I embed XMP metadata in multiple languages?</a></li>
+<li><a href="#structure">How do I enter in a “structured” tag?</a></li>
+<li><a href="#knitr">Is there an easy way to embed XMP metadata when using {knitr}?</a></li>
+<li><a href="#links">What are some helpful XMP external links?</a></li>
+</ul>
+</div>
+<div id="how-do-i-adjust-the-automatic-guessing-of-missing-xmp-tags" class="section level2">
+<h2><a name="auto">How do I adjust the automatic guessing of missing XMP tags?</a></h2>
+<p>The <code>auto_xmp</code> active binding for <code>xmp()</code> objects is a character vector of XMP tags that if missing <code>{xmpdf}</code> will try to automatically guess based on values of other XMP tags and the <code>spdx_id</code> active binding (<a href="https://spdx.org/licenses/">SPDX License List Identifer</a>). When printing <code>xmp()</code> objects one can observe which XMP tags are guessed because they’ll have a <code>=&gt;</code> on their left.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;xmpdf&quot;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">xmp</span>(<span class="at">creator =</span> <span class="st">&quot;John Doe&quot;</span>, <span class="at">date_created =</span> <span class="st">&quot;2023-02-10&quot;</span>, <span class="at">spdx_id =</span> <span class="st">&quot;CC-BY-4.0&quot;</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
+<pre><code>## i  spdx_id (not XMP tag) := CC-BY-4.0
+## i  auto_xmp (not XMP tag) :=  cc:attributionName, cc:license, dc:rights, dc:subject,
+##         photoshop:Credit, xmpRights:Marked, xmpRights:UsageTerms,
+##         xmpRights:WebStatement
+## =&gt; cc:attributionName = John Doe
+## =&gt; cc:license = https://creativecommons.org/licenses/by/4.0/
+##    dc:creator := John Doe
+## =&gt; dc:rights = © 2023 John Doe. Some rights reserved.
+## =&gt; photoshop:Credit = John Doe
+##    photoshop:DateCreated := 2023-02-10
+## =&gt; xmpRights:Marked = TRUE
+## =&gt; xmpRights:UsageTerms = This work is licensed to the public under the Creative Commons
+##         Attribution 4.0 International license
+##         https://creativecommons.org/licenses/by/4.0/
+## =&gt; xmpRights:WebStatement = https://creativecommons.org/licenses/by/4.0/</code></pre>
+<p>If you remove an XMP tag from <code>auto_xmp</code> then <code>{xmpdf}</code> will no longer try to guess it:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;xmpdf&quot;</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">xmp</span>(<span class="at">creator =</span> <span class="st">&quot;John Doe&quot;</span>, <span class="at">date_created =</span> <span class="st">&quot;2023-02-10&quot;</span>, <span class="at">spdx_id =</span> <span class="st">&quot;CC-BY-4.0&quot;</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>auto_xmp <span class="ot">&lt;-</span> base<span class="sc">::</span><span class="fu">setdiff</span>(x<span class="sc">$</span>auto_xmp,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">c</span>(<span class="st">&quot;dc:rights&quot;</span>, <span class="st">&quot;photoshop:Credit&quot;</span>))</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
+<pre><code>## i  spdx_id (not XMP tag) := CC-BY-4.0
+## i  auto_xmp (not XMP tag) :=  cc:attributionName, cc:license, dc:subject, xmpRights:Marked,
+##         xmpRights:UsageTerms, xmpRights:WebStatement
+## =&gt; cc:attributionName = John Doe
+## =&gt; cc:license = https://creativecommons.org/licenses/by/4.0/
+##    dc:creator := John Doe
+##    photoshop:DateCreated := 2023-02-10
+## =&gt; xmpRights:Marked = TRUE
+## =&gt; xmpRights:UsageTerms = This work is licensed to the public under the Creative Commons
+##         Attribution 4.0 International license
+##         https://creativecommons.org/licenses/by/4.0/
+## =&gt; xmpRights:WebStatement = https://creativecommons.org/licenses/by/4.0/</code></pre>
+<p>Alternatively you could explicitly set a missing XMP tag (which then would no longer need to be guessed):</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;xmpdf&quot;</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">xmp</span>(<span class="at">creator =</span> <span class="st">&quot;John Doe&quot;</span>, <span class="at">date_created =</span> <span class="st">&quot;2023-02-10&quot;</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>rights <span class="ot">&lt;-</span> <span class="st">&quot;© 2023 A Corporation. Some rights reserved.&quot;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
+<pre><code>## i  auto_xmp (not XMP tag) :=  cc:attributionName, cc:license, dc:rights, dc:subject,
+##         photoshop:Credit, xmpRights:Marked, xmpRights:UsageTerms,
+##         xmpRights:WebStatement
+## =&gt; cc:attributionName = John Doe
+##    dc:creator := John Doe
+##    dc:rights := © 2023 A Corporation. Some rights reserved.
+## =&gt; photoshop:Credit = John Doe
+##    photoshop:DateCreated := 2023-02-10</code></pre>
+</div>
+<div id="which-xmp-tags-have-an-active-binding" class="section level2">
+<h2><a name="active">Which XMP tags have an active binding?</a></h2>
+<p>XMP tags with an active binding in <code>xmp()</code> objects will automatically be coerced into the right data type and are a little easier to get/set than XMP tags without an active binding. Here is a list of current active bindings provided by <code>xmp()</code> objects:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Active Binding</th>
+<th>XMP tag</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>alt_text</code></td>
+<td><code>Iptc4xmpCore:AltTextAccessibility</code></td>
+</tr>
+<tr class="even">
+<td><code>attribution_name</code></td>
+<td><code>cc:attributionName</code></td>
+</tr>
+<tr class="odd">
+<td><code>attribution_url</code></td>
+<td><code>cc:attributionURL</code></td>
+</tr>
+<tr class="even">
+<td><code>create_date</code></td>
+<td><code>xmp:CreateDate</code></td>
+</tr>
+<tr class="odd">
+<td><code>creator</code></td>
+<td><code>dc:creator</code></td>
+</tr>
+<tr class="even">
+<td><code>creator_tool</code></td>
+<td><code>xmp:CreatorTool</code></td>
+</tr>
+<tr class="odd">
+<td><code>credit</code></td>
+<td><code>photoshop:Credit</code></td>
+</tr>
+<tr class="even">
+<td><code>date_created</code></td>
+<td><code>photoshop:DateCreated</code></td>
+</tr>
+<tr class="odd">
+<td><code>description</code></td>
+<td><code>dc:description</code></td>
+</tr>
+<tr class="even">
+<td><code>ext_description</code></td>
+<td><code>Iptc4xmpCore:ExtDescrAccessibility</code></td>
+</tr>
+<tr class="odd">
+<td><code>headline</code></td>
+<td><code>photoshop:Headline</code></td>
+</tr>
+<tr class="even">
+<td><code>keywords</code></td>
+<td><code>pdf:Keywords</code></td>
+</tr>
+<tr class="odd">
+<td><code>license</code></td>
+<td><code>cc:license</code></td>
+</tr>
+<tr class="even">
+<td><code>marked</code></td>
+<td><code>xmpRights:Marked</code></td>
+</tr>
+<tr class="odd">
+<td><code>modify_date</code></td>
+<td><code>xmp:ModifyDate</code></td>
+</tr>
+<tr class="even">
+<td><code>more_permissions</code></td>
+<td><code>cc:morePermissions</code></td>
+</tr>
+<tr class="odd">
+<td><code>producer</code></td>
+<td><code>pdf:Producer</code></td>
+</tr>
+<tr class="even">
+<td><code>rights</code></td>
+<td><code>dc:rights</code></td>
+</tr>
+<tr class="odd">
+<td><code>subject</code></td>
+<td><code>dc:subject</code></td>
+</tr>
+<tr class="even">
+<td><code>title</code></td>
+<td><code>dc:title</code></td>
+</tr>
+<tr class="odd">
+<td><code>usage_terms</code></td>
+<td><code>xmpRights:UsageTerms</code></td>
+</tr>
+<tr class="even">
+<td><code>web_statement</code></td>
+<td><code>xmpRights:WebStatement</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="how-do-i-get-or-set-xmp-tags-without-an-active-binding" class="section level2">
+<h2><a name="nonactive">How do I get or set XMP tags without an active binding?</a></h2>
+<p>If you want to set an XMP tag without an active binding you must use the <code>xmp()</code> objects <code>set_item()</code> method. To get an XMP without an active binding you must use the <code>xmp()</code> objects <code>get_item()</code> method. You may also use <code>get_item()</code> and <code>set_item()</code> for XMP tags with an active binding as well.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;xmpdf&quot;</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">xmp</span>()</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span><span class="fu">set_item</span>(<span class="st">&quot;dc:contributor&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;John Doe&quot;</span>, <span class="st">&quot;Jane Doe&quot;</span>))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span><span class="fu">get_item</span>(<span class="st">&quot;dc:contributor&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;John Doe&quot; &quot;Jane Doe&quot;</code></pre>
+<p>Depending on the value type of the XMP tag you may need to manually coerce it to a special R class:</p>
+<table>
+<thead>
+<tr class="header">
+<th>XMP value type</th>
+<th>R function to coerce</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>date</td>
+<td><code>datetimeoffset::as_datetimeoffset()</code></td>
+</tr>
+<tr class="even">
+<td>lang-alt</td>
+<td><code>xmpdf::as_lang_alt()</code></td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;datetimeoffset&quot;</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;xmpdf&quot;</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>transcript <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">en =</span> <span class="st">&quot;An English Transcript&quot;</span>, </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">fr =</span> <span class="st">&quot;Une transcription française&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">as_lang_alt</span>(<span class="at">default_lang =</span> <span class="st">&quot;en&quot;</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>last_edited <span class="ot">&lt;-</span> <span class="st">&quot;2020-02-04T10:10:10&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">as_datetimeoffset</span>()</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">xmp</span>()</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span><span class="fu">set_item</span>(<span class="st">&quot;Iptc4xmpExt:Transcript&quot;</span>, transcript)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span><span class="fu">set_item</span>(<span class="st">&quot;Iptc4xmpExt:IPTCLastEdited&quot;</span>, last_edited)</span></code></pre></div>
+</div>
+<div id="what-xmp-tags-are-used-to-display-informaton-on-google-images" class="section level2">
+<h2><a name="google">What XMP tags are used to display informaton on Google Images?</a></h2>
+<p>Google Images can show more details about an image when <a href="https://developers.google.com/search/docs/appearance/structured-data/image-license-metadata">certain metadata is specified</a>:</p>
+<ol style="list-style-type: decimal">
+<li><p>Structured data on the web page the image appears (takes priority over XMP tags if defined)</p></li>
+<li><p>XMP tags embedded in the image</p>
+<ul>
+<li><code>dc:creator</code></li>
+<li><code>photoshop:Credit</code></li>
+<li><code>dc:rights</code></li>
+<li><code>xmpRights:WebStatement</code></li>
+<li>the <code>Licensor URL</code> subfield of <code>plus:Licensor</code> structured XMP tag</li>
+</ul></li>
+</ol>
+<p><code>xmp()</code> object’s <code>print(mode = &quot;google_images&quot;)</code> will tell what the Google Images XMP tags metadata would be:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;xmpdf&quot;</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">xmp</span>(<span class="at">attribution_url =</span> <span class="st">&quot;https://example.com/attribution&quot;</span>,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">creator =</span> <span class="st">&quot;John Doe&quot;</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">description =</span> <span class="st">&quot;An image caption&quot;</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">date_created =</span> <span class="fu">Sys.Date</span>(),</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">spdx_id =</span> <span class="st">&quot;CC-BY-4.0&quot;</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x, <span class="at">mode =</span> <span class="st">&quot;google_images&quot;</span>, <span class="at">xmp_only =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##    dc:creator := John Doe
+## =&gt; dc:rights = © 2023 John Doe. Some rights reserved.
+## =&gt; photoshop:Credit = John Doe
+## X  plus:Licensor (not currently supported by {xmpdf})
+## =&gt; xmpRights:WebStatement = https://creativecommons.org/licenses/by/4.0/</code></pre>
+</div>
+<div id="which-tags-should-i-use-for-creative-commons-license-information" class="section level2">
+<h2><a name="cc">Which tags should I use for Creative Commons license information?</a></h2>
+<p><a href="https://wiki.creativecommons.org/wiki/XMP">Creative Commons recommends</a> you specify the following XMP tags to indicate your license information:</p>
+<ul>
+<li><code>dc:rights</code></li>
+<li><code>xmpRight:Marked</code></li>
+<li><code>xmpRights:WebStatement</code></li>
+<li><code>xmpRights:UsageTerms</code></li>
+<li><code>cc:license</code></li>
+<li><code>cc:morePermissions</code></li>
+<li><code>cc:attributionURL</code></li>
+<li><code>cc:attributionName</code></li>
+</ul>
+<p><code>xmp()</code> object’s <code>print(mode = &quot;creative_commons&quot;)</code> will tell what this XMP tags metadata would be:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;xmpdf&quot;</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">xmp</span>(<span class="at">attribution_url =</span> <span class="st">&quot;https://example.com/attribution&quot;</span>,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">creator =</span> <span class="st">&quot;John Doe&quot;</span>,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">description =</span> <span class="st">&quot;An image caption&quot;</span>,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">date_created =</span> <span class="fu">Sys.Date</span>(),</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">spdx_id =</span> <span class="st">&quot;CC-BY-4.0&quot;</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x, <span class="at">mode =</span> <span class="st">&quot;creative_commons&quot;</span>, <span class="at">xmp_only =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## =&gt; cc:attributionName = John Doe
+##    cc:attributionURL := https://example.com/attribution
+## =&gt; cc:license = https://creativecommons.org/licenses/by/4.0/
+##    cc:morePermissions := NULL
+## =&gt; dc:rights = © 2023 John Doe. Some rights reserved.
+## =&gt; xmpRights:Marked = TRUE
+## =&gt; xmpRights:UsageTerms = This work is licensed to the public under the Creative Commons
+##         Attribution 4.0 International license
+##         https://creativecommons.org/licenses/by/4.0/
+## =&gt; xmpRights:WebStatement = https://creativecommons.org/licenses/by/4.0/</code></pre>
+</div>
+<div id="how-do-i-embed-xmp-metadata-in-multiple-languages" class="section level2">
+<h2><a name="language">How do I embed XMP metadata in multiple languages?</a></h2>
+<p>Although some XMP metadata tags must be a string in a single language but some XMP metadata tags support <a href="https://github.com/adobe/xmp-docs/blob/master/XMPNamespaces/XMPDataTypes/CoreProperties.md#language-alternative">“language alternative aka”lang-alt&quot;</a> values which allow values for multiple languages to be specified:</p>
+<ul>
+<li><code>Iptc4xmpCore:AltTextAccessibility</code></li>
+<li><code>dc:description</code></li>
+<li><code>Iptc4xmpCore:ExtDescrAccessibility</code></li>
+<li><code>dc:rights</code></li>
+<li><code>dc:title</code></li>
+<li><code>xmpRights:UsageTerms</code></li>
+<li>Plus <a href="https://exiftool.org/TagNames/XMP.html">other XMP tags</a> which will need to be manually coerced by <code>as_lang_alt()</code> and set with the <code>xmp()</code> object’s <code>set_item()</code> method</li>
+</ul>
+<p>See <code>?as_lang_alt</code> for more details but essentially create a character vector or list and name the entries with an RFC 3066 name tag.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;xmpdf&quot;</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">xmp</span>()</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>description <span class="ot">&lt;-</span> <span class="st">&quot;Description in only one default language&quot;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>title <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">en =</span> <span class="st">&quot;An English Title&quot;</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">fr =</span> <span class="st">&quot;Une titre française&quot;</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co"># XMP tags without an active binding must be manually coerced by `as_lang_alt`</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>transcript <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">en =</span> <span class="st">&quot;An English Transcript&quot;</span>,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">fr =</span> <span class="st">&quot;Une transcription française&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">as_lang_alt</span>(<span class="at">default_lang =</span> <span class="st">&quot;en&quot;</span>)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span><span class="fu">set_item</span>(<span class="st">&quot;Iptc4xmpExt:Transcript&quot;</span>, transcript)</span></code></pre></div>
+</div>
+<div id="how-do-i-enter-in-a-structured-tag" class="section level2">
+<h2><a name="structure">How do I enter in a “structured” tag?</a></h2>
+<p>Currently <code>{xmpdf}</code> does not officially support entering in “struct” XMP tags (although it does support “lang-alt” tags and simple lists of basic XMP value types).</p>
+<p>If necessary you’ll need to use an external program such as <a href="https://exiftool.org/">exiftool</a> (perhaps via <a href="https://github.com/JoshOBrien/exiftoolr">{exiftoolr}</a>) to <a href="https://exiftool.org/struct.html">embed structured</a> XMP tags.</p>
+</div>
+<div id="is-there-an-easy-way-to-embed-xmp-metadata-when-using-knitr" class="section level2">
+<h2><a name="knitr">Is there an easy way to embed XMP metadata when using {knitr}?</a></h2>
+<p><code>{knitr}</code> supports the <a href="https://yihui.org/knitr/options/#plots">chunk option</a> <code>fig.process</code> which accepts a function to post-process figure files. The first argument should be a path to the figure file and may optionally accept an <code>options</code> argument which will receive a list of chunk options. It should return a (possibly new) path to be inserted in the output.</p>
+<p><code>xmp()</code> objects have a <code>fig_process()</code> method which return a <strong>function</strong> that can be used for this <code>fig.process</code> option to embed XMP metadat into images. Depending on the strings in its <code>auto</code> argument this function will also automatically map the following <code>{knitr}</code> chunk options to XMP tags:</p>
+<ul>
+<li><code>fig.cap</code> to <code>dc:description</code></li>
+<li><code>fig.scap</code> to <code>photoshop:Headline</code></li>
+<li><code>fig.alt</code> to <code>Iptc4xmpCore:AltTextAccessibility</code></li>
+</ul>
+<pre class="rmd"><code>.. {r setup, echo=FALSE}
+x &lt;- xmpdf::xmp(creator = &quot;John Doe&quot;, 
+                date_created = &quot;2023&quot;, 
+                spdx_id = &quot;CC-BY-4.0&quot;,
+                attribution_url = &quot;https://example.com/attribution&quot;)
+knitr::opts_chunk$set(fig.process = x$fig_process())
+.. ..</code></pre>
+</div>
+<div id="what-are-some-helpful-xmp-external-links" class="section level2">
+<h2><a name="links">What are some helpful XMP external links?</a></h2>
+<ul>
+<li><a href="https://iptc.org/standards/photo-metadata/iptc-standard/">IPTC Photo Metadata Standard</a> (IPTC) is a popular XMP metadata standard for photos</li>
+<li><a href="https://iptc.org/standards/photo-metadata/quick-guide-to-iptc-photo-metadata-and-google-images/">Quick guide to IPTC Photo Metadata on Google Images</a> (IPTC) describes the subset of the IPTC Photo Metadata Standard used by Google Photos to list photo credits and license information</li>
+<li><a href="https://github.com/adobe/xmp-docs/tree/master/XMPNamespaces">xmp-docs</a> (Adobe) describes some common XMP tags</li>
+<li><a href="https://wiki.creativecommons.org/wiki/XMP">XMP</a> (Creative Commons) describes a standard for using XMP to embed Creative Commons license information</li>
+<li><a href="https://exiftool.org/TagNames/XMP.html">XMP tags</a> (exiftool) is a fairly comprehensive list of XMP tags</li>
+</ul>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

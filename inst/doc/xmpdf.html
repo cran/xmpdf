@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>Introduction to xmpdf</title>
+
+<script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<link rel="stylesheet" href="data:text/css,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" type="text/css" />
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Introduction to xmpdf</h1>
+
+
+
+<div id="table-of-contents" class="section level3">
+<h3>Table of Contents</h3>
+<ul>
+<li><p><a href="#overview">Overview</a></p></li>
+<li><p><a href="#installation">Installation</a></p></li>
+<li><p><a href="#examples">Examples</a></p>
+<ul>
+<li><a href="#pdfcreate">Add XMP/docinfo metadata and bookmarks to a pdf</a></li>
+<li><a href="#pnglicense">Add Google Images and Creative Commons license XMP metadata to a png image</a></li>
+<li><a href="#pdfcat">Concatenate pdf files and embed concatenated bookmarks</a></li>
+</ul></li>
+<li><p><a href="#comparison">Limitations by backend</a></p></li>
+<li><p><a href="#links">External links</a></p>
+<ul>
+<li><a href="#standards">Metadata links</a></li>
+<li><a href="#similar">Related software</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="overview" class="section level2">
+<h2><a name="overview">Overview</a></h2>
+<p><code>{xmpdf}</code> provides functions for getting and setting <a href="https://en.wikipedia.org/wiki/Extensible_Metadata_Platform">Extensibe Metadata Platform (XMP)</a> metadata in a variety of media file formats as well as getting and setting PDF <a href="https://opensource.adobe.com/dc-acrobat-sdk-docs/library/pdfmark/pdfmark_Basic.html#document-info-dictionary-docinfo">documentation info</a> entries and <a href="https://opensource.adobe.com/dc-acrobat-sdk-docs/library/pdfmark/pdfmark_Basic.html#bookmarks-out">bookmarks</a> (aka outline aka table of contents).</p>
+</div>
+<div id="installation" class="section level2">
+<h2><a name="installation">Installation</a></h2>
+<p>Depending on what you’d like to do you’ll need to install some additional R packages and/or command-line tools:</p>
+<ul>
+<li><p><strong><a href="https://cran.r-project.org/package=qpdf">{qpdf}</a></strong> can be used to concatenate pdf files together as well as get the number of pages in a pdf. Note currently a dependency of <a href="https://docs.ropensci.org/pdftools/">{pdftools}</a>.</p>
+<ul>
+<li><code>install.packages(&quot;qpdf&quot;)</code></li>
+</ul></li>
+<li><p><strong><a href="https://docs.ropensci.org/pdftools/">{pdftools}</a></strong> can be used to get documentation info entries in pdf files. Note currently depends on <a href="https://cran.r-project.org/package=qpdf">{qpdf}</a>.</p>
+<ul>
+<li><code>install.packages(&quot;pdftools&quot;)</code> will probably install <code>{qpdf}</code> as well</li>
+</ul></li>
+<li><p><strong><a href="https://exiftool.org/">exiftool</a></strong> can be used to get/set xmp metadata in a variety of media files as well as documentation info entries in pdf files. Can also be used to get the number of pages in a pdf. Note can be installed by <a href="https://github.com/JoshOBrien/exiftoolr">{exiftoolr}</a>.</p>
+<ul>
+<li><code>install.packages(&quot;exiftoolr&quot;); exiftoolr::install_exiftool()</code> (Cross-Platform)</li>
+<li><code>sudo apt-get install libimage-exiftool-perl</code> (Debian/Ubuntu)</li>
+<li><code>brew install exiftool</code> (Homebrew)</li>
+<li><code>choco install exiftool</code> (Chocolately)</li>
+</ul></li>
+<li><p><strong><a href="https://www.ghostscript.com/">ghostscript</a></strong> can be used to set bookmarks and documentation info entries in pdf files. Can also be used to concatenate pdf files together as well as get the number of pages in a pdf.</p>
+<ul>
+<li><code>sudo apt-get install ghostscript</code> (Debian/Ubuntu)</li>
+<li><code>brew install ghostscript</code> (Homebrew)</li>
+<li><code>choco install ghostscript</code> (Chocolately)</li>
+</ul></li>
+<li><p><strong><a href="https://gitlab.com/pdftk-java/pdftk">pdftk-java</a></strong> or perhaps <strong><a href="https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/">pdftk</a></strong> can be used to get/set bookmarks and documentation info entries in pdf files.<br />
+Can also be used to concatenate pdf files together as well as get the number of pages in a pdf.</p>
+<ul>
+<li><code>sudo apt-get install pdftk-java</code> (Debian/Ubuntu)</li>
+<li><code>brew install pdftk-java</code> (Homebrew)</li>
+<li><code>choco install pdftk-java</code> (Chocolately)</li>
+</ul></li>
+</ul>
+</div>
+<div id="examples" class="section level2">
+<h2><a name="examples">Examples</a></h2>
+<div id="add-xmpdocinfo-metadata-and-bookmarks-to-a-pdf" class="section level3">
+<h3><a name="pdfcreate">Add XMP/docinfo metadata and bookmarks to a pdf</a></h3>
+<p>A simple example where we create a two page pdf using <code>pdf()</code> and then add XMP metadata, PDF documentation info metadata, and PDF bookmarks to it:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;xmpdf&quot;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a two page pdf using `pdf()`</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">fileext =</span> <span class="st">&quot;.pdf&quot;</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(f, <span class="at">onefile =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.text</span>(<span class="st">&quot;Page 1&quot;</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.newpage</span>()</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.text</span>(<span class="st">&quot;Page 2&quot;</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">dev.off</span>())</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># See what default metadata `pdf()` created</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">get_docinfo</span>(f)[[<span class="dv">1</span>]] <span class="sc">|&gt;</span> <span class="fu">print</span>()</span></code></pre></div>
+<pre><code>## Author: NULL
+## CreationDate: 2023-02-06T13:58:25
+## Creator: R
+## Producer: R 4.2.2
+## Title: R Graphics Output
+## Subject: NULL
+## Keywords: NULL
+## ModDate: 2023-02-06T13:58:25</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_xmp</span>(f)[[<span class="dv">1</span>]] <span class="sc">|&gt;</span> <span class="fu">print</span>()</span></code></pre></div>
+<pre><code>## No XMP metadata found</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_bookmarks</span>(f)[[<span class="dv">1</span>]] <span class="sc">|&gt;</span> <span class="fu">print</span>()</span></code></pre></div>
+<pre><code>## [1] title    page     level    count    open     color    fontface
+## &lt;0 rows&gt; (or 0-length row.names)</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Edit PDF documentation info</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">get_docinfo</span>(f)[[<span class="dv">1</span>]] <span class="sc">|&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">update</span>(<span class="at">author =</span> <span class="st">&quot;John Doe&quot;</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">subject =</span> <span class="st">&quot;A minimal document to demonstrate {xmpdf} features on&quot;</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">title =</span> <span class="st">&quot;Two Boring Pages&quot;</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">keywords =</span> <span class="fu">c</span>(<span class="st">&quot;R&quot;</span>, <span class="st">&quot;xmpdf&quot;</span>))</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">set_docinfo</span>(d, f)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">get_docinfo</span>(f)[[<span class="dv">1</span>]] <span class="sc">|&gt;</span> <span class="fu">print</span>()</span></code></pre></div>
+<pre><code>## Author: John Doe
+## CreationDate: 2023-02-06T13:58:25
+## Creator: R
+## Producer: GPL Ghostscript 9.55.0
+## Title: Two Boring Pages
+## Subject: A minimal document to demonstrate {xmpdf} features on
+## Keywords: R, xmpdf
+## ModDate: 2023-02-06T13:58:25</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Edit XMP metadata</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">as_xmp</span>(d) <span class="sc">|&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">update</span>(<span class="at">attribution_url =</span> <span class="st">&quot;https://example.com/attribution&quot;</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">date_created =</span> <span class="fu">Sys.Date</span>(),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">spdx_id =</span> <span class="st">&quot;CC-BY-4.0&quot;</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set_xmp</span>(x, f)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">get_xmp</span>(f)[[<span class="dv">1</span>]] <span class="sc">|&gt;</span> <span class="fu">print</span>()</span></code></pre></div>
+<pre><code>##    cc:attributionName := John Doe
+##    cc:attributionURL := https://example.com/attribution
+##    cc:license := https://creativecommons.org/licenses/by/4.0/
+##    dc:creator := John Doe
+##    dc:description := A minimal document to demonstrate {xmpdf} features on
+##    dc:format := application/pdf
+##    dc:rights := © 2023 John Doe. Some rights reserved.
+##    dc:subject := R, xmpdf
+##    dc:title := Two Boring Pages
+##    pdf:Keywords := R, xmpdf
+##    pdf:Producer := R 4.2.2
+##    photoshop:Credit := John Doe
+##    photoshop:DateCreated := 2023-02-06
+##    x:XMPToolkit := Image::ExifTool 12.40
+##    xmp:CreateDate := 2023-02-06T13:58:25
+##    xmp:CreatorTool := R
+##    xmp:ModifyDate := 2023-02-06T13:58:25
+##    xmpMM:DocumentID := uuid:ef2af557-de85-11f8-0000-2567e21c8552
+##    xmpRights:Marked := TRUE
+##    xmpRights:UsageTerms := This work is licensed to the public under the Creative Commons
+##         Attribution 4.0 International license
+##         https://creativecommons.org/licenses/by/4.0/
+##    xmpRights:WebStatement := https://creativecommons.org/licenses/by/4.0/</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Edit PDF bookmarks</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>bm <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">title =</span> <span class="fu">c</span>(<span class="st">&quot;Page 1&quot;</span>, <span class="st">&quot;Page 2&quot;</span>), <span class="at">page =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set_bookmarks</span>(bm, f)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">get_bookmarks</span>(f)[[<span class="dv">1</span>]] <span class="sc">|&gt;</span> <span class="fu">print</span>()</span></code></pre></div>
+<pre><code>##    title page level count open color fontface
+## 1 Page 1    1     1    NA   NA  &lt;NA&gt;     &lt;NA&gt;
+## 2 Page 2    2     1    NA   NA  &lt;NA&gt;     &lt;NA&gt;</code></pre>
+</div>
+<div id="add-google-images-and-creative-commons-license-xmp-metadata-to-a-png-image" class="section level3">
+<h3><a name="pnglicense">Add Google Images and Creative Commons license XMP metadata to a png image</a></h3>
+<p>Besides pdf files with <code>exiftool</code> we can also edit the XMP metadata for <a href="https://exiftool.org/#supported">a large number of image formats</a> including “gif”, “png”, “jpeg”, “tiff”, and “webp”. In particular we may be interested in setting the subset of <a href="https://iptc.org/standards/photo-metadata/quick-guide-to-iptc-photo-metadata-and-google-images/">IPTC Photo XMP metadata displayed by Google Images</a> as well as embedding <a href="https://wiki.creativecommons.org/wiki/XMP">Creative Commons license XMP metadata</a>.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;xmpdf&quot;</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">fileext =</span> <span class="st">&quot;.png&quot;</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(f)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.text</span>(<span class="st">&quot;This is an image!&quot;</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>() <span class="sc">|&gt;</span> <span class="fu">invisible</span>()</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="fu">get_xmp</span>(f)[[<span class="dv">1</span>]] <span class="sc">|&gt;</span> <span class="fu">print</span>()</span></code></pre></div>
+<pre><code>## No XMP metadata found</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">xmp</span>(<span class="at">attribution_url =</span> <span class="st">&quot;https://example.com/attribution&quot;</span>,</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">creator =</span> <span class="st">&quot;John Doe&quot;</span>,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">description =</span> <span class="st">&quot;An image caption&quot;</span>,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">date_created =</span> <span class="fu">Sys.Date</span>(),</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">spdx_id =</span> <span class="st">&quot;CC-BY-4.0&quot;</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x, <span class="at">mode =</span> <span class="st">&quot;google_images&quot;</span>, <span class="at">xmp_only =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##    dc:creator := John Doe
+## =&gt; dc:rights = © 2023 John Doe. Some rights reserved.
+## =&gt; photoshop:Credit = John Doe
+## X  plus:Licensor (not currently supported by {xmpdf})
+## =&gt; xmpRights:WebStatement = https://creativecommons.org/licenses/by/4.0/</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x, <span class="at">mode =</span> <span class="st">&quot;creative_commons&quot;</span>, <span class="at">xmp_only =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## =&gt; cc:attributionName = John Doe
+##    cc:attributionURL := https://example.com/attribution
+## =&gt; cc:license = https://creativecommons.org/licenses/by/4.0/
+##    cc:morePermissions := NULL
+## =&gt; dc:rights = © 2023 John Doe. Some rights reserved.
+## =&gt; xmpRights:Marked = TRUE
+## =&gt; xmpRights:UsageTerms = This work is licensed to the public under the Creative Commons
+##         Attribution 4.0 International license
+##         https://creativecommons.org/licenses/by/4.0/
+## =&gt; xmpRights:WebStatement = https://creativecommons.org/licenses/by/4.0/</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set_xmp</span>(x, f)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">get_xmp</span>(f)[[<span class="dv">1</span>]] <span class="sc">|&gt;</span> <span class="fu">print</span>()</span></code></pre></div>
+<pre><code>##    cc:attributionName := John Doe
+##    cc:attributionURL := https://example.com/attribution
+##    cc:license := https://creativecommons.org/licenses/by/4.0/
+##    dc:creator := John Doe
+##    dc:description := An image caption
+##    dc:rights := © 2023 John Doe. Some rights reserved.
+##    photoshop:Credit := John Doe
+##    photoshop:DateCreated := 2023-02-06
+##    x:XMPToolkit := Image::ExifTool 12.40
+##    xmpRights:Marked := TRUE
+##    xmpRights:UsageTerms := This work is licensed to the public under the Creative Commons
+##         Attribution 4.0 International license
+##         https://creativecommons.org/licenses/by/4.0/
+##    xmpRights:WebStatement := https://creativecommons.org/licenses/by/4.0/</code></pre>
+</div>
+<div id="concatenate-pdf-files-and-embed-concatenated-bookmarks" class="section level3">
+<h3><a name="pdfcat">Concatenate pdf files and embed concatenated bookmarks</a></h3>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create two multi-page pdfs and add bookmarks to them</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>f_a <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">fileext =</span> <span class="st">&quot;.pdf&quot;</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(f_a, <span class="at">title =</span> <span class="st">&quot;Document A&quot;</span>, <span class="at">onefile =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.text</span>(<span class="st">&quot;Document A: First Page&quot;</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.newpage</span>()</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.text</span>(<span class="st">&quot;Document A: Second Page&quot;</span>)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>() <span class="sc">|&gt;</span> <span class="fu">invisible</span>()</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>f_b <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">fileext =</span> <span class="st">&quot;.pdf&quot;</span>)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(f_b, <span class="at">title =</span> <span class="st">&quot;Document B&quot;</span>, <span class="at">onefile =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.text</span>(<span class="st">&quot;Document B: First Page&quot;</span>)</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.newpage</span>()</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.text</span>(<span class="st">&quot;Document B: Second Page&quot;</span>)</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>() <span class="sc">|&gt;</span> <span class="fu">invisible</span>()</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>bm <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">title =</span> <span class="fu">c</span>(<span class="st">&quot;First Page&quot;</span>, <span class="st">&quot;Second Page&quot;</span>), <span class="at">page =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a><span class="fu">set_bookmarks</span>(bm, f_a)</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a><span class="fu">set_bookmarks</span>(bm, f_b)</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Concatenate pdfs to a single pdf and add their concatenated bookmarks to it</span></span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>files <span class="ot">&lt;-</span> <span class="fu">c</span>(f_a, f_b)</span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>f_cat <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">fileext =</span> <span class="st">&quot;.pdf&quot;</span>)</span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a><span class="fu">cat_pages</span>(files, f_cat)</span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a><span class="fu">cat_bookmarks</span>(<span class="fu">get_bookmarks</span>(files), <span class="at">method =</span> <span class="st">&quot;title&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">set_bookmarks</span>(f_cat)</span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">get_bookmarks</span>(f_cat)[[<span class="dv">1</span>]])</span></code></pre></div>
+<pre><code>##         title page level count open color fontface
+## 1  Document A    1     1    NA   NA  &lt;NA&gt;     &lt;NA&gt;
+## 2  First Page    1     2    NA   NA  &lt;NA&gt;     &lt;NA&gt;
+## 3 Second Page    2     2    NA   NA  &lt;NA&gt;     &lt;NA&gt;
+## 4  Document B    3     1    NA   NA  &lt;NA&gt;     &lt;NA&gt;
+## 5  First Page    3     2    NA   NA  &lt;NA&gt;     &lt;NA&gt;
+## 6 Second Page    4     2    NA   NA  &lt;NA&gt;     &lt;NA&gt;</code></pre>
+</div>
+</div>
+<div id="limitations-by-backend" class="section level2">
+<h2><a name="comparison">Limitations by backend</a></h2>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><code>{xmpdf}</code> feature</th>
+<th><code>exiftool</code></th>
+<th><code>pdftk</code></th>
+<th><code>ghostscript</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Get XMP metadata</td>
+<td><strong>Yes</strong></td>
+<td><strong>No</strong></td>
+<td><strong>No</strong></td>
+</tr>
+<tr class="even">
+<td>Set XMP metadata</td>
+<td><strong>Yes</strong></td>
+<td><strong>No</strong></td>
+<td><strong>Poor</strong>: when documentation info metadata is set then as a side effect it seems the documentation info metadata will also be set as XMP metadata</td>
+</tr>
+<tr class="odd">
+<td>Get PDF bookmarks</td>
+<td><strong>No</strong></td>
+<td><strong>Okay</strong>: can only get Title, Page number, and Level</td>
+<td><strong>No</strong></td>
+</tr>
+<tr class="even">
+<td>Set PDF bookmarks</td>
+<td><strong>No</strong></td>
+<td><strong>Okay</strong>: can only set Title, Page number, and Level</td>
+<td><strong>Good</strong>: supports most bookmarks features including color and font face but only action supported is to view a particular page</td>
+</tr>
+<tr class="odd">
+<td>Get PDF documentation info</td>
+<td><strong>Good</strong>: may “widen” datetimes which are less than “second” precision</td>
+<td><strong>Yes</strong></td>
+<td><strong>No</strong></td>
+</tr>
+<tr class="even">
+<td>Set PDF documentation info</td>
+<td><strong>Good</strong>: An hour-only UTC offset in dates will be “widened” to minute precision</td>
+<td><strong>Good</strong>: may not handle entries with newlines in them</td>
+<td><strong>Yes</strong>: as a side effect when documentation info metadata is set then it seems will also be set as XMP metadata</td>
+</tr>
+<tr class="odd">
+<td>Concatenate PDF files</td>
+<td><strong>No</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Known limitations:</p>
+<ul>
+<li><code>get_bookmarks_pdftk()</code> doesn’t report information about bookmarks color, font face, and whether the bookmarks should start open or closed.</li>
+<li><code>get_docinfo_exiftool()</code> “widens” datetimes to second precision. An hour-only UTC offset will be “widened” to minute precision.</li>
+<li><code>get_docinfo_pdftools()</code>’s datetimes may not accurately reflect the embedded datetimes.</li>
+<li><code>set_bookmarks_gs()</code> supports most bookmarks features including color and font face but only action supported is to view a particular page.</li>
+<li><code>set_bookmarks_pdftk()</code> only supports setting the title, page number, and level of bookmarks.</li>
+<li><code>set_docinfo_exiftool()</code> will “widen” an hour-only UTC offset to minute precision.</li>
+<li><code>set_docinfo_pdftk()</code> may not handle entries with newlines in them.</li>
+<li>All of the <code>set_docinfo()</code> methods currently do not support arbitrary info dictionary entries.</li>
+<li>As a side effect <code>set_docinfo_gs()</code> seems to also update any matching XPN metadata while <code>set_docinfo_exiftool()</code> and <code>set_docinfo_pdftk()</code> don’t update any previously set matching XPN metadata. Some pdf viewers will preferentially use the previously set document title from XPN metadata if it exists instead of using the title set in documentation info dictionary entry. Consider also manually setting this XPN metadata using <code>set_xmp()</code></li>
+<li>Old metadata information is usually not deleted from the files by these operations (i.e. these operations are often theoretically reversible). If deleting the old metadata is important one may want to consider calling <code>qpdf::pdf_compress(input, linearize = TRUE)</code> at the end.</li>
+</ul>
+</div>
+<div id="external-links" class="section level2">
+<h2><a name="links">External links</a></h2>
+<div id="metadata-links" class="section level3">
+<h3><a name="standards">Metadata links</a></h3>
+<ul>
+<li><a href="https://opensource.adobe.com/dc-acrobat-sdk-docs/library/pdfmark/pdfmark_Basic.html#">basic pdfmark features</a> (Adobe) documents “Documentation info dictionary” metadata and “Bookmarks”</li>
+<li><a href="https://iptc.org/standards/photo-metadata/iptc-standard/">IPTC Photo Metadata Standard</a> (IPTC) is a popular XMP metadata standard for photos</li>
+<li><a href="https://iptc.org/standards/photo-metadata/quick-guide-to-iptc-photo-metadata-and-google-images/">Quick guide to IPTC Photo Metadata on Google Images</a> (IPTC) describes the subset of the IPTC Photo Metadata Standard used by Google Photos to list photo credits and license information</li>
+<li><a href="https://github.com/adobe/xmp-docs/tree/master/XMPNamespaces">xmp-docs</a> (Adobe) describes some common XMP tags</li>
+<li><a href="https://wiki.creativecommons.org/wiki/XMP">XMP</a> (Creative Commons) describes a standard for using XMP to embed Creative Commons license information</li>
+<li><a href="https://exiftool.org/TagNames/XMP.html">XMP tags</a> (exiftool) is a fairly comprehensive list of XMP tags</li>
+</ul>
+</div>
+<div id="related-software" class="section level3">
+<h3><a name="similar">Related software</a></h3>
+<p>Note most of the R packages listed below are focused on <strong>getting</strong> metadata rather than <strong>setting</strong> metadata and/or only provide low-level wrappers around the relevant command-line tools. Please feel free to <a href="https://github.com/trevorld/r-xmpdf/edit/main/README.Rmd">open a pull request to add any missing relevant R packages</a>.</p>
+<div id="exempi" class="section level4">
+<h4>exempi</h4>
+<ul>
+<li><a href="https://libopenraw.freedesktop.org/exempi/">exempi</a></li>
+</ul>
+</div>
+<div id="exiftool" class="section level4">
+<h4>exiftool</h4>
+<ul>
+<li><a href="https://github.com/paleolimbot/exifr">{exifr}</a> provides a high-level wrapper to read metadata as well as a low-level wrapper around the <code>exiftool</code> command-line tool. Can download <code>exiftool</code>.</li>
+<li><a href="https://github.com/JoshOBrien/exiftoolr">{exiftoolr}</a> provides high-level wrapper to read metadata as well as a low-level wrapper around the <code>exiftool</code> command-line tool. Can download <code>exiftool</code>.</li>
+<li><a href="https://exiftool.org/">exiftool</a></li>
+</ul>
+</div>
+<div id="exiv2" class="section level4">
+<h4>exiv2</h4>
+<ul>
+<li><a href="https://github.com/hrbrmstr/exiv">{exiv}</a> read and write ‘Exif’, ‘ID3v1’ and ‘ID3v2’ image/media tags</li>
+<li><a href="https://exiv2.org/">exiv2</a></li>
+</ul>
+</div>
+<div id="other-exif-tools" class="section level4">
+<h4>other exif tools</h4>
+<ul>
+<li><a href="https://github.com/Ironholds/exif">{exif}</a> reads EXIF from jpeg images</li>
+<li><a href="https://github.com/ropensci/magick">{magick}</a> has <code>image_attributes()</code> which reads EXIF image tags.</li>
+</ul>
+</div>
+<div id="ghostscript" class="section level4">
+<h4>ghostscript</h4>
+<ul>
+<li><code>{tools}</code> has <code>find_gs_cmd()</code> to find a GhostScript executable in a cross-platform way.</li>
+<li><a href="https://www.ghostscript.com/">ghostscript</a></li>
+</ul>
+</div>
+<div id="poppler" class="section level4">
+<h4>poppler</h4>
+<ul>
+<li><a href="https://docs.ropensci.org/pdftools/">{pdftools}</a></li>
+<li><a href="https://cran.r-project.org/package=Rpoppler">{Rpoppler}</a></li>
+<li><a href="https://poppler.freedesktop.org/">poppler</a></li>
+</ul>
+</div>
+<div id="qpdf" class="section level4">
+<h4>qpdf</h4>
+<ul>
+<li><a href="https://cran.r-project.org/package=qpdf">{qpdf}</a></li>
+<li><a href="https://qpdf.sourceforge.io/">qpdf</a></li>
+</ul>
+</div>
+<div id="pdftk" class="section level4">
+<h4>pdftk</h4>
+<ul>
+<li><a href="https://yihui.org/animation/">{animation}</a> has <code>pdftk()</code>, a low-level wrapper around the <code>pdftk</code> command-line tool.</li>
+<li><a href="https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/">pdftk</a></li>
+<li><a href="https://gitlab.com/pdftk-java/pdftk">pdftk-java</a></li>
+</ul>
+</div>
+<div id="tabula" class="section level4">
+<h4>tabula</h4>
+<ul>
+<li><a href="https://github.com/ropensci/tabulizer">{tabulizer}</a></li>
+<li><a href="https://github.com/tabulapdf/tabula-java/">tabula-java</a></li>
+</ul>
+</div>
+<div id="xpdf" class="section level4">
+<h4>xpdf</h4>
+<ul>
+<li><a href="http://www.xpdfreader.com/about.html">xpdf</a>’s <code>pdfinfo</code> tool</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
