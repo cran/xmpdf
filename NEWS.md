@@ -1,3 +1,19 @@
+xmpdf 0.1.3
+===========
+
+Bug fixes and minor improvements
+--------------------------------
+
+* `set_docinfo_exiftool()` should now losslessly write all legal datetimes (#55).
+  `set_docinfo()`'s priority order has been updated to the following:
+
+  1. `set_docinfo_exiftool()`
+  2. `set_docinfo_gs()`
+  3. `set_docinfo_pdftk()`
+
+* Unit tests have been adjusted to prevent CRAN R CMD check ERRORs on certain CRAN platforms
+  that don't have `ghostscript` installed or are ran in a non-Unicode locale (#56).
+
 xmpdf 0.1.1
 ===========
 

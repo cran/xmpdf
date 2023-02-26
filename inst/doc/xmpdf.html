@@ -428,7 +428,7 @@ Can also be used to concatenate pdf files together as well as get the number of 
 </tr>
 <tr class="even">
 <td>Set PDF documentation info</td>
-<td><strong>Good</strong>: An hour-only UTC offset in dates will be “widened” to minute precision</td>
+<td><strong>Yes</strong></td>
 <td><strong>Good</strong>: may not handle entries with newlines in them</td>
 <td><strong>Yes</strong>: as a side effect when documentation info metadata is set then it seems will also be set as XMP metadata</td>
 </tr>
@@ -447,7 +447,6 @@ Can also be used to concatenate pdf files together as well as get the number of 
 <li><code>get_docinfo_pdftools()</code>’s datetimes may not accurately reflect the embedded datetimes.</li>
 <li><code>set_bookmarks_gs()</code> supports most bookmarks features including color and font face but only action supported is to view a particular page.</li>
 <li><code>set_bookmarks_pdftk()</code> only supports setting the title, page number, and level of bookmarks.</li>
-<li><code>set_docinfo_exiftool()</code> will “widen” an hour-only UTC offset to minute precision.</li>
 <li><code>set_docinfo_pdftk()</code> may not handle entries with newlines in them.</li>
 <li>All of the <code>set_docinfo()</code> methods currently do not support arbitrary info dictionary entries.</li>
 <li>As a side effect <code>set_docinfo_gs()</code> seems to also update any matching XPN metadata while <code>set_docinfo_exiftool()</code> and <code>set_docinfo_pdftk()</code> don’t update any previously set matching XPN metadata. Some pdf viewers will preferentially use the previously set document title from XPN metadata if it exists instead of using the title set in documentation info dictionary entry. Consider also manually setting this XPN metadata using <code>set_xmp()</code></li>
