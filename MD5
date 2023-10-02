@@ -1,6 +1,6 @@
-ebb77b930cfb0dd1e100f805d66bb195 *DESCRIPTION
+6049a34d357703518a4e47a77f7dc0a8 *DESCRIPTION
 9c050f8a806ae7f83f0e71445524723b *NAMESPACE
-69e4b967ee64bc6d37017f99b99adece *NEWS.md
+40c8d4280b44a78675ed7aa34433bc22 *NEWS.md
 1bf08d271c5e84bcfd0fa46aba163040 *R/as_docinfo.R
 c5ceedee9c48664c8a0deb28269a5dd5 *R/as_lang_alt.R
 668cf14e2c0319701085edcbb27bcf3b *R/as_xmp.R
@@ -19,9 +19,9 @@ cafa4a7f88d0f283f10ed3961bc08adb *R/utils-misc.R
 0046ff18533346ca3f35caf04648fdfd *R/xmp.R
 81c1d6d03f5522cd6166b07e7d773a5f *R/xmpdf-package.R
 b096a450bfb011589eb35ac3153eb3ab *R/zzz.R
-6ad03cd6f65845347630a0d54e9267f2 *README.md
-4f73adf24cdc57ff415031c4edc18c65 *build/vignette.rds
-50c75db6dbaff394f84d4028ca5d3cdb *data/spdx_licenses.rda
+abccf6f3741cc0994b7be90a6afa2518 *README.md
+3bcb99f6dd653ca1288b66062133da29 *build/vignette.rds
+71b80ccfd1edba16b807e1c70cffa77e *data/spdx_licenses.rda
 aac8bddb1f047942b038fba7dc8ab204 *inst/doc/xmp.R
 573d9fca1f285296c1cf2aa00da6d392 *inst/doc/xmp.Rmd
 5c933cb5c4f6c2e3ec9838c3ded8826a *inst/doc/xmp.html
@@ -53,11 +53,11 @@ e8d4e33e1d6e25c03666a1592cb95abd *man/xmp.Rd
 0d63d285152611f3d279e0563a15893a *tests/testthat/_snaps/messages.md
 83706d5d96bac4f0675d6dd7ae78bb73 *tests/testthat/_snaps/xmp.md
 d13784f3e0ec5775be114f04f2d10f6e *tests/testthat/test-as_lang_alt.R
-c3fa7db32895f1940c3b55ea7b023f6c *tests/testthat/test-bookmarks.R
+42e46fd5e34abb6c09e8c146d2dad6b5 *tests/testthat/test-bookmarks.R
 f4a5becb42fe42657b0516b083818e4d *tests/testthat/test-cat_pages.R
-6701f3c1bf37dcfc49b3811a813cedc0 *tests/testthat/test-docinfo.R
+db8484f724d698534d4b5622d6ee7d64 *tests/testthat/test-docinfo.R
 94957e998722bd47eb47a75e29d4a792 *tests/testthat/test-messages.R
 8efb9babb73cfb57ddc218b23acfa1cc *tests/testthat/test-n_pages.R
-91a319bcccbe3010a88ee671bf288f50 *tests/testthat/test-xmp.R
+a7ae10afb027ceff944fe32120f76bf9 *tests/testthat/test-xmp.R
 573d9fca1f285296c1cf2aa00da6d392 *vignettes/xmp.Rmd
 9f7f456516f7bc219f82aba99efdc872 *vignettes/xmpdf.Rmd
